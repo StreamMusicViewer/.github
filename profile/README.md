@@ -13,8 +13,8 @@ We maintain two primary versions of the widget to suit your stream's performance
 
 | 🏆 Repository | 📝 Description | 🎯 Best For |
 | :--- | :--- | :--- |
-| **[OSMV (Full)](https://github.com/StreamMusicViewer/OSMV)** | The complete experience. Includes full-resolution album artwork extraction, robust background tracking, glassmorphism design, and advanced formatting. | Streamers wanting a visually rich, feature-complete widget with album art. |
-| **[OSMV Lite](https://github.com/StreamMusicViewer/OSMV-lite)** | The minimal version. Extremely low resource usage with essential core features for maximum broadcast performance. | Streamers running heavy games who need the absolute lowest system overhead. |
+| **[OSMV (Full)](https://github.com/StreamMusicViewer/OSMV)** | The complete experience. Includes album artwork (with the background color adapting to it, Discord Rich Presence, and an audio visualizer. | Streamers wanting a visually rich, feature-complete widget with album art. |
+| **[OSMV Lite](https://github.com/StreamMusicViewer/OSMV-lite)** | The minimal version. low resource usage with essential core features for maximum broadcast performance. | Streamers who need the absolute lowest system overhead. |
 
 ## ⚙️ How It Works
 
