@@ -1,40 +1,85 @@
 # OBS Stream Music Viewer (OSMV)
 
-Welcome to the **StreamMusicViewer** organization! We build elegant, lightweight, and zero-dependency "Now Playing" widgets for OBS streamers.
+![Status](https://img.shields.io/badge/status-working-success)
+![Platform Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
+![Platform Linux](https://img.shields.io/badge/platform-Linux-orange)
+![C++](https://img.shields.io/badge/C++-20-blueviolet)
+![Qt](https://img.shields.io/badge/Qt-6-green)
 
-Your Music. **On Stream.** Perfectly.
+Welcome to the **StreamMusicViewer** organization! This is the flagship **"Now Playing"** widget for OBS. Built in **C++ with Qt 6**, it's designed to be elegant, lightweight, and high-performance.
 
-## What We Do
-Our open-source tools allow you to seamlessly display your currently playing music—from Apple Music, Spotify, Chrome, Edge, and YouTube Music—directly on your stream. No complex setups, no background Python/Node.js servers, just a simple executable and a beautiful OBS Browser Source.
+## Features
 
-## Our Repositories
-
-We maintain two primary versions of the widget to suit your stream's performance and aesthetic needs:
-
-| Repository | Description | Best For |
-| :--- | :--- | :--- |
-| **[OSMV (Full)](https://github.com/StreamMusicViewer/OSMV)** | The complete experience. Includes album artwork (with the background color adapting to it, Discord Rich Presence, and an audio visualizer. | Streamers wanting a visually rich, feature-complete widget with album art. |
-| **[OSMV Lite](https://github.com/StreamMusicViewer/OSMV-lite)** | The minimal version. low resource usage with essential core features for maximum broadcast performance. | Streamers who need the absolute lowest system overhead. |
+- **Real-time updates** — Detects currently playing music every second
+- **Album artwork** — Displays full-resolution album covers
+- **Dynamic color** — Widget background matches the album cover palette
+- **Audio visualizer** — Animated bars in OBS (beta)
+- **Discord Rich Presence** — Shows what you're listening to on Discord
+- **Background operation** — Minimize to system tray
+- **Multi-app support** — Spotify, Apple Music, Firefox, Chrome, VLC, and more
 
 ## How It Works
 
+```mermaid
+graph TD
+    A[Music Player] -->|MPRIS2 / WinRT| B[OSMV Qt App]
+    B -->|Writes JSON| C[current_song.json]
+    C -->|Polled by| D[OBS Browser Source]
+    D -->|Renders| E[OBS Overlay]
+```
 
+---
 
-Our widgets run entirely locally on your machine (Windows 10/11) using a highly efficient pipeline:
+## Quick Start
 
-1. **Detection:** The standalone `.NET 8` executable uses the Windows `GlobalSystemMediaTransportControlsSessionManager` API to detect what's playing (even when minimized).
-2. **JSON Bridge:** Track info and artwork (as base64) are saved to a local `current_song.json` file every second.
-3. **Live Widget:** An `index.html` file loaded as an **OBS Browser Source** polls the JSON and renders a beautiful card on your stream with smooth fade transitions.
+### Windows
 
-## Key Features
-* **Zero Dependencies:** Download, double-click, and you're done. No installers required.
-* **Universal Compatibility:** Works out-of-the-box with any app integrated with Windows Media Controls.
-* **Fully Customizable:** Don't like the default look? Simply edit the `style.css` file to change colors, sizes, and fonts to match your specific overlay.
-* **Open Source:** Free forever, licensed under MIT.
+1. Go to the **[Releases](https://github.com/StreamMusicViewer/OSMV/releases)** page and download the latest `.zip`.
+2. Extract and place `osmv.exe`, `index.html`, and `style.css` in a folder.
+3. Double-click `osmv.exe`.
+4. Configure OBS (see below).
+
+### Linux
+
+**Install dependencies:**
+```bash
+sudo pacman -S qt6-base playerctl   # Arch / Manjaro
+# or
+sudo apt install qt6-base-dev playerctl   # Ubuntu 24.04+
+```
+
+1. Go to the **[Releases](https://github.com/StreamMusicViewer/OSMV/releases)** page and download the latest Linux binary.
+2. Place `osmv`, `index.html`, and `style.css` in the same folder.
+3. `chmod +x osmv && ./osmv` — an icon appears in your system tray.
+4. Configure OBS (see below).
+
+---
+
+## Configure OBS
+
+1. In OBS, add a new **Browser** source.
+2. Check **"Local file"**.
+3. Browse and select `index.html` from the folder containing the app.
+4. Set dimensions: **Width: 500**, **Height: 140**.
+5. Click OK.
+
+*As long as the application is running, your OBS widget updates automatically.*
+
+---
+
+## Our Repositories
+
+| Repository | Description |
+| :--- | :--- |
+| **[OSMV (Full)](https://github.com/StreamMusicViewer/OSMV)** | The complete experience with album art, color adaptation, Discord RP, and visualizer. |
+| **[OSMV Lite](https://github.com/StreamMusicViewer/OSMV-lite)** | The minimal version for maximum broadcast performance. |
+
+---
 
 ## Links & Creator
 * **Creator:** [@Ulyxx3](https://github.com/Ulyxx3)
-* **License:** MIT
+* **License:** [MIT](https://github.com/StreamMusicViewer/OSMV/blob/main/LICENSE)
+* **Troubleshooting:** [Troubleshooting Guide](https://github.com/StreamMusicViewer/OSMV/blob/main/TROUBLESHOOTING.md)
 
 ---
-*Built for streamers who care about every detail of their broadcast. If you have feature requests or run into bugs, feel free to open an issue in the respective repositories!*
+*Built for streamers who care about every detail of their broadcast.*
