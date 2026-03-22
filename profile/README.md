@@ -3,10 +3,10 @@
 ![Status](https://img.shields.io/badge/status-working-success)
 ![Platform Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
 ![Platform Linux](https://img.shields.io/badge/platform-Linux-orange)
-![C++](https://img.shields.io/badge/C++-20-blueviolet)
-![Qt](https://img.shields.io/badge/Qt-6-green)
+![Rust](https://img.shields.io/badge/Language-Rust-brown)
+![egui](https://img.shields.io/badge/GUI-egui-lightgrey)
 
-Welcome to the **StreamMusicViewer** organization! This is the flagship **"Now Playing"** widget for OBS. Built in **C++ with Qt 6**, it's designed to be elegant, lightweight, and high-performance.
+Welcome to the **StreamMusicViewer** organization! This is the flagship **"Now Playing"** widget for OBS. Completely rewritten in **Rust with egui**, it's designed to be modern, lightweight, and ultra-high-performance.
 
 ## Features
 
@@ -22,7 +22,7 @@ Welcome to the **StreamMusicViewer** organization! This is the flagship **"Now P
 
 ```mermaid
 graph TD
-    A[Music Player] -->|MPRIS2 / WinRT| B[OSMV Qt App]
+    A[Music Player] -->|MPRIS / WinRT| B[OSMV Core (Rust)]
     B -->|Writes JSON| C[current_song.json]
     C -->|Polled by| D[OBS Browser Source]
     D -->|Renders| E[OBS Overlay]
@@ -41,16 +41,12 @@ graph TD
 
 ### Linux
 
-**Install dependencies:**
-```bash
-sudo pacman -S qt6-base playerctl   # Arch / Manjaro
-# or
-sudo apt install qt6-base-dev playerctl   # Ubuntu 24.04+
-```
+**Dependencies:**
+Most distributions already have the required `libdbus` library.
 
 1. Go to the **[Releases](https://github.com/StreamMusicViewer/OSMV/releases)** page and download the latest Linux binary.
 2. Place `osmv`, `index.html`, and `style.css` in the same folder.
-3. `chmod +x osmv && ./osmv` — an icon appears in your system tray.
+3. `chmod +x osmv && ./osmv`
 4. Configure OBS (see below).
 
 ---
