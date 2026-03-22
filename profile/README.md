@@ -22,7 +22,7 @@ Welcome to the **StreamMusicViewer** organization! This is the flagship **"Now P
 
 ```mermaid
 graph TD
-    A[Music Player] -->|MPRIS / WinRT| B[OSMV Core (Rust)]
+    A[Music Player] -->|MPRIS / WinRT| B["OSMV Core (Rust)"]
     B -->|Writes JSON| C[current_song.json]
     C -->|Polled by| D[OBS Browser Source]
     D -->|Renders| E[OBS Overlay]
