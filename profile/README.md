@@ -76,7 +76,7 @@ graph TD
 ## Links & Creator
 - **Documentation:** [streammusicviewer.github.io/OSMV](https://streammusicviewer.github.io/OSMV/)
 - **Creator:** [@Ulyxx3](https://github.com/Ulyxx3)
-- **License:** [MIT](https://github.com/StreamMusicViewer/OSMV/blob/main/LICENSE)
+- **License:** [GPL-3.0](https://github.com/StreamMusicViewer/OSMV/blob/main/LICENSE)
 - **Troubleshooting:** [Troubleshooting Guide](https://github.com/StreamMusicViewer/OSMV/blob/main/TROUBLESHOOTING.md)
 
 ---
